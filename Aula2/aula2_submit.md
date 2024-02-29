@@ -48,7 +48,7 @@ Considere um Sistema de Prescrição Eletrónica de Medicamentos com as seguinte
 
 #### *a)* Desenvolva o desenho conceptual da base de dados do Sistema de Prescrição Eletrónica de Medicamentos com recurso a um diagrama entidade-relacionamento.
 
-![ex_2_2!](ex_2_2.png "AnImage or PDF file")
+![ex_2_2!](ex2.drawio.svg "AnImage or PDF file")
 
 ### Problema 2.3
 
@@ -65,7 +65,7 @@ Considere um Sistema de Gestão de Conferências com as seguintes característic
 
 #### *a)* Desenvolva o desenho conceptual da base de dados do Sistema de Gestão de Conferências com recurso a um diagrama entidade-relascionamento.
 
-![ex_2_3!](ex_2_3.png "AnImage or PDF file")
+![ex_2_3!](ex3.drawio.svg "AnImage or PDF file")
 
 ### Problema 2.4
 
