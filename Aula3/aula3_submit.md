@@ -55,7 +55,7 @@ Pesado:
 
 ### _c)_
 
-![ex_3_1c!](ex_3_1c.jpg "AnImage")
+![ex_3_1c!](./ex1c.svg "AnImage")
 
 ## ​Problema 3.2
 
@@ -92,7 +92,7 @@ Airplane:
 Flight_Leg:
 - Candidate Key: Leg_no
 - Primary Key: Leg_no
-- Foreign Keys: 
+- Foreign Keys:
   - Departure_airport
   - Arrival_airport
 
@@ -101,7 +101,7 @@ Flight:
 - Primary Key: Number
 
 Leg_Instance:
-- Candidate Keys: 
+- Candidate Keys:
   - Date
   - Leg_no
 - Primary Key: (Date, Leg_no)
@@ -117,7 +117,7 @@ Seat:
 - Primary Key: Seat_no
 
 Reservation:
-- Candidate Keys: 
+- Candidate Keys:
   - Customer_name
   - Cphone
   - Seat_no
@@ -137,7 +137,7 @@ Reservation:
 
 ### _a)_ 2.1
 
-![ex_3_3_a!](ex_3_3a.jpg "AnImage")
+![ex_3_3_a!](./ex3a.svg "AnImage")
 
 ### _b)_ 2.2
 
@@ -149,4 +149,4 @@ Reservation:
 
 ### _d)_ 2.4
 
-![ex_3_3_d!](ex_3_3d.jpg "AnImage")
+![ex_3_3_d!](./ex3d.svg "AnImage")
