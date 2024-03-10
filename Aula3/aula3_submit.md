@@ -9,7 +9,7 @@ Cliente(nome, endereco, num_carta, NIF)
 Aluguer(numero, duracao, data, client, balcao, veiculo)
 Balcao(numero, nome, endereco)
 Veiculo(marca,ano, matricula, tipo)
-Tipo_Veiculo(designacao, arcondicionado, designação )
+Tipo_Veiculo(código, arcondicionado, designação)
 Ligeiro(numlugares, portas, combustivel)
 Pesado(peso,passageiros)
 Similaridade(Tipo_Veiculo)
@@ -62,18 +62,76 @@ Pesado:
 ### _a)_
 
 ```
-... Write here your answer ...
+Airport(Airport_code, City, State, Name);
+Airplane_Type(Type_name, Max_seats, Company);
+Airplane(Airplane_id, Total_no_seats, Type);
+Flight_Leg(Leg_no, Scheduled_dep_time, Scheduled_arr_time, Departure_airport, Arrival_airport);
+Flight(Number, Airlane, Weekdays);
+Leg_Instance(Date, No_of_avail_seats, Flight_Leg);
+Fare(Code, Amount, Restrictions, Flight);
+Reservation(Custumer_name, Cphone, Seat, Leg_instance);
+Seat(Seat_no);
 ```
 
 ### _b)_
 
 ```
-... Write here your answer ...
+Airport:
+- Candidate Key: Airport_code
+- Primary Key: Airport_code
+
+Airplane_Type:
+- Candidate Key: Type_name
+- Primary Key: Type_name
+
+Airplane:
+- Candidate Key: Airplane_id
+- Primary Key: Airplane_id
+- Foreign Key: Type
+
+Flight_Leg:
+- Candidate Key: Leg_no
+- Primary Key: Leg_no
+- Foreign Keys: 
+  - Departure_airport
+  - Arrival_airport
+
+Flight:
+- Candidate Key: Number
+- Primary Key: Number
+
+Leg_Instance:
+- Candidate Keys: 
+  - Date
+  - Leg_no
+- Primary Key: (Date, Leg_no)
+- Foreign Key: Flight_Leg
+
+Fare:
+- Candidate Key: Code
+- Primary Key: Code
+- Foreign Key: Flight
+
+Seat:
+- Candidate Key: Seat_no
+- Primary Key: Seat_no
+
+Reservation:
+- Candidate Keys: 
+  - Customer_name
+  - Cphone
+  - Seat_no
+  - Date
+  - Leg_no
+- Primary Key: (Customer_name, Cphone, Seat_no, Date, Leg_no)
+- Foreign Keys:
+  - Seat
+  - Leg_Instance
 ```
 
 ### _c)_
 
-![ex_3_2c!](ex_3_2c.jpg "AnImage")
+![ex_3_2c!](ex2.drawio.svg "AnImage")
 
 ## ​Problema 3.3
 
@@ -83,11 +141,11 @@ Pesado:
 
 ### _b)_ 2.2
 
-![ex_3_3_b!](ex_3_3b.jpg "AnImage")
+![ex_3_3_b!](ex3b.drawio.svg "AnImage")
 
 ### _c)_ 2.3
 
-![ex_3_3_c!](ex_3_3c.jpg "AnImage")
+![ex_3_3_c!](ex3c.drawio.svg "AnImage")
 
 ### _d)_ 2.4
 
