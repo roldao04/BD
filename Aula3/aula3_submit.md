@@ -34,10 +34,22 @@ Balcao:
 Veiculo:
 - Candidate Key: matricula
 - Primary Key: matricula
+- Foreign Key: tipo
 
 Tipo_Veiculo:
 - Candidate Key: codigo
 - Primary Key: codigo
+
+Similaridade:
+- Candidate Key: tipo1, tipo2
+- Primary Key: tipo1, tipo2
+- Foreign Key: tipo1, tipo2
+
+Ligeiro:
+- Freign Key: codigo
+
+Pesado:
+- Freign Key: codigo
 
 ```
 
