@@ -10,9 +10,9 @@
 
 ### 2. Sistema de Gestão de Reservas de Voos
 
-[SQL DDL File](ex_4_1_2.sql "SQLFileQuestion")
+[SQL DDL File](reserva_de_voos.sql "SQLFileQuestion")
 
-![ex_4_1_2 diagram](ex_4_1_2.png "AnImage")
+![ex_4_1_2 diagram](reserva_de_voos.png "AnImage")
 
 ### 3. Sistema de Gestão de Stocks – Módulo de Encomendas
 
@@ -22,15 +22,15 @@
 
 ### 4. Sistema de Prescrição Eletrónica de Medicamentos 
 
-[SQL DDL File](ex_4_1_4.sql "SQLFileQuestion")
+[SQL DDL File](medicamentos.sql "SQLFileQuestion")
 
-![ex_4_1_4 diagram](ex_4_1_4.png "AnImage")
+![ex_4_1_4 diagram](medicamentos.png "AnImage")
 
 ### 5. Sistema de Gestão de Conferências
 
-[SQL DDL File](ex_4_1_5.sql "SQLFileQuestion")
+[SQL DDL File](conferencias.sql "SQLFileQuestion")
 
-![ex_4_1_5 diagram](ex_4_1_5.png "AnImage")
+![ex_4_1_5 diagram](conferencias.png "AnImage")
 
 ### 6. Sistema de Gestão de ATL
 
