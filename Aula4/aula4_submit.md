@@ -16,9 +16,9 @@
 
 ### 3. Sistema de Gestão de Stocks – Módulo de Encomendas
 
-[SQL DDL File](ex_4_1_3.sql "SQLFileQuestion")
+[SQL DDL File](encomendas.sql "SQLFileQuestion")
 
-![ex_4_1_3 diagram](ex_4_1_3.png "AnImage")
+![ex_4_1_3 diagram](encomendas.png "AnImage")
 
 ### 4. Sistema de Prescrição Eletrónica de Medicamentos 
 
