@@ -4,9 +4,9 @@
 
 ### 1. Sistema de Gestão de um Rent-a-Car
 
-[SQL DDL File](ex_4_1_1.sql "SQLFileQuestion")
+[SQL DDL File](rent_a_car.sql "SQLFileQuestion")
 
-![ex_4_1_1 diagram](ex_4_1_1.png "AnImage")
+![ex_4_1_1 diagram](rent_a_car.png "AnImage")
 
 ### 2. Sistema de Gestão de Reservas de Voos
 
@@ -34,6 +34,6 @@
 
 ### 6. Sistema de Gestão de ATL
 
-[SQL DDL File](ex_4_1_6.sql "SQLFileQuestion")
+[SQL DDL File](atl.sql "SQLFileQuestion")
 
-![ex_4_1_6 diagram](ex_4_1_6.png "AnImage")
+![ex_4_1_6 diagram](atl.png "AnImage")
