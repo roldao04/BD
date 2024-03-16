@@ -1,5 +1,3 @@
-CREATE DATABASE RENT_A_CAR;
-GO
 
 USE RENT_A_CAR;
 
@@ -18,7 +16,7 @@ CREATE TABLE Veiculo (
 );
 GO
 
-CREATE TABLE Cliente (
+CREATE TABLE Client (
     NIF INT PRIMARY KEY NOT NULL,
     num_carta INT NOT NULL,
     endereco VARCHAR(255) NOT NULL,
@@ -35,9 +33,9 @@ GO
 
 CREATE TABLE Aluguer (
     numero INT PRIMARY KEY NOT NULL ,
-    duracao INT NOT NULL ,
+    duracao INT NOT NULL CHECK (duracao >0),
     data DATE NOT NULL ,
-    client VARCHAR(255) NOT NULL  FOREIGN KEY REFERENCES Cliente(NIF),
+    client INT NOT NULL  FOREIGN KEY REFERENCES Client(NIF),
     balcao INT NOT NULL  FOREIGN KEY REFERENCES Balcao(numero),
     veiculo VARCHAR(255) NOT NULL  FOREIGN KEY REFERENCES Veiculo(matricula)
 );
@@ -45,21 +43,22 @@ GO
 
 CREATE TABLE Ligeiro (
     codigo INT NOT NULL  PRIMARY KEY FOREIGN KEY REFERENCES Tipo_Veiculo(codigo),
-    num_lugares INT NOT NULL ,
-    portas INT NOT NULL ,
+    num_lugares INT NOT NULL CHECK (num_lugares > 0),
+    portas INT NOT NULL CHECK (portas > 0),
     combustivel VARCHAR(255) NOT NULL
 );
 GO
 
 CREATE TABLE Pesado (
     codigo INT PRIMARY KEY FOREIGN KEY REFERENCES Tipo_Veiculo(codigo),
-    peso DECIMAL(10,2) NOT NULL ,
-    passageiros INT NOT NULL
+    peso DECIMAL(10,2) NOT NULL CHECK (peso > 0),
+    passageiros INT NOT NULL CHECK (passageiros > 0)
 );
 GO
 
 CREATE TABLE Similaridade (
     Tipo1 INT NOT NULL  FOREIGN KEY REFERENCES Tipo_Veiculo(codigo),
     Tipo2 INT NOT NULL  FOREIGN KEY REFERENCES Tipo_Veiculo(codigo)
+    PRIMARY KEY (Tipo1, Tipo2),
 );
 GO
