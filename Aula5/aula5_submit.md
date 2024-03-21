@@ -55,7 +55,8 @@ females = σ Sex='F' (employee)
 ### _i)_
 
 ```
-... Write here your answer ...
+projects = σ Dlocation != 'Aveiro' ∧ Plocation = 'Aveiro' (project ⨝Dnum=Dnumber dept_location)
+π Fname, Address (employee ⨝ Dno=Dnum projects)
 ```
 
 ## ​Problema 5.2
