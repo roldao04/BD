@@ -1,6 +1,6 @@
 # BD: Trabalho Prático APFE
 
-**Grupo**: PXGY
+**Grupo**: P5G5
 - João Roldão, MEC: 113920
 - Guilherme Rosa, MEC: 113968
 
