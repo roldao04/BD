@@ -51,7 +51,9 @@ ThreeOrMoreDependent ⨝ Essn = Ssn (employee)
 ### _h)_
 
 ```
-... Write here your answer ...
+Managers = π Mgr_ssn (department)
+Managers_with_Dependents = π Mgr_ssn (Managers ⨝ Mgr_ssn = Essn (dependent))
+Managers - Managers_with_Dependents
 ```
 
 ### _i)_
