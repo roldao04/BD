@@ -76,7 +76,7 @@ table = encomenda ⟗ fornecedor=nif fornecedor
 ### _b)_
 
 ```
-... Write here your answer ...
+π nome, media (γ codProd;avg(unidades)-> media (item) ⨝ codProd=codigo produto)
 ```
 
 ### _c)_
