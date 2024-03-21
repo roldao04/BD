@@ -24,7 +24,9 @@ cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes'
 ### _d)_
 
 ```
-... Write here your answer ...
+Project_Number = π Pnumber (σ Pname = 'Aveiro Digital' ∧ Dnum = 3 (project))
+ESSN = π Essn (Project_Number ⨝ Hours > 20 ∧ Pnumber=Pno (works_on))
+π Fname (ESSN ⨝ Essn=Ssn (employee))
 ```
 
 ### _e)_
