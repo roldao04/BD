@@ -11,7 +11,8 @@
 ### _b)_
 
 ```
-... Write here your answer ...
+cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes' (employee))
+π Fname (employee ⨝ Super_ssn=supervisor_ssn (cdg))
 ```
 
 ### _c)_
