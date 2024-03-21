@@ -1,4 +1,5 @@
 USE ATL;
+
 CREATE TABLE Pessoa (
     ncartao_cidadao INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,

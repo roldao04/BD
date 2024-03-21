@@ -1,4 +1,3 @@
-
 USE RENT_A_CAR;
 
 CREATE TABLE Tipo_Veiculo (
