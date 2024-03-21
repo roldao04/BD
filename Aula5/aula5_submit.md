@@ -69,7 +69,8 @@ projects = σ Dlocation != 'Aveiro' ∧ Plocation = 'Aveiro' (project ⨝Dnum=Dn
 ### _a)_
 
 ```
-... Write here your answer ...
+table = encomenda ⟗ fornecedor=nif fornecedor
+π nome σ fornecedor=null table
 ```
 
 ### _b)_
