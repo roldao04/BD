@@ -24,7 +24,9 @@ cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes'
 ### _d)_
 
 ```
-... Write here your answer ...
+Project_Number = π Pnumber (σ Pname = 'Aveiro Digital' ∧ Dnum = 3 (project))
+ESSN = π Essn (Project_Number ⨝ Hours > 20 ∧ Pnumber=Pno (works_on))
+π Fname (ESSN ⨝ Essn=Ssn (employee))
 ```
 
 ### _e)_
@@ -43,13 +45,16 @@ females = σ Sex='F' (employee)
 ### _g)_
 
 ```
-... Write here your answer ...
+ThreeOrMoreDependent = σ count_dep>2 (γ Essn; count(Essn) -> count_dep (dependent))
+ThreeOrMoreDependent ⨝ Essn = Ssn (employee)
 ```
 
 ### _h)_
 
 ```
-... Write here your answer ...
+Managers = π Mgr_ssn (department)
+Managers_with_Dependents = π Mgr_ssn (Managers ⨝ Mgr_ssn = Essn (dependent))
+Managers - Managers_with_Dependents
 ```
 
 ### _i)_
