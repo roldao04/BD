@@ -30,7 +30,7 @@ cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes'
 ### _e)_
 
 ```
-... Write here your answer ...
+π Fname (employee ⟕ Ssn=Essn ∧ Pno=null (works_on))
 ```
 
 ### _f)_
