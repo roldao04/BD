@@ -18,7 +18,7 @@ cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes'
 ### _c)_
 
 ```
-... Write here your answer ...
+γ Pnumber, Pname; sum(Hours) -> Hours ((project) ⨝ Pnumber=Pno (works_on))
 ```
 
 ### _d)_
