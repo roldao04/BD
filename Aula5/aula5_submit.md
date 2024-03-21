@@ -1,136 +1,120 @@
 # BD: Guião 5
 
-
 ## ​Problema 5.1
- 
-### *a)*
+
+### _a)_
 
 ```
-Write here your answer e.g:
-(π Pname, Pnumber (project) ⨝ Pno=Pnumber (works_on)) ⨝.... 
+π Ssn, Fname (project ⨝ Dno=Dnum employee)
 ```
 
-
-### *b)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *c)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *d)* 
+### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *e)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *f)* 
+### _d)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *g)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *h)* 
+### _e)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *i)* 
+### _f)_
 
 ```
 ... Write here your answer ...
 ```
 
+### _g)_
+
+```
+... Write here your answer ...
+```
+
+### _h)_
+
+```
+... Write here your answer ...
+```
+
+### _i)_
+
+```
+... Write here your answer ...
+```
 
 ## ​Problema 5.2
 
-### *a)*
+### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *b)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *c)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *d)* 
+### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
+### _d)_
+
+```
+... Write here your answer ...
+```
 
 ## ​Problema 5.3
 
-### *a)*
+### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *b)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *c)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *d)* 
+### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *e)* 
+### _d)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *f)* 
+### _e)_
+
+```
+... Write here your answer ...
+```
+
+### _f)_
 
 ```
 ... Write here your answer ...
