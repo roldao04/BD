@@ -38,7 +38,8 @@ ESSN = π Essn (Project_Number ⨝ Hours > 20 ∧ Pnumber=Pno (works_on))
 ### _f)_
 
 ```
-... Write here your answer ...
+females = σ Sex='F' (employee)
+γ Dname; avg(Salary) -> avg_salary (females ⨝ department)
 ```
 
 ### _g)_
@@ -59,7 +60,8 @@ Managers - Managers_with_Dependents
 ### _i)_
 
 ```
-... Write here your answer ...
+projects = σ Dlocation != 'Aveiro' ∧ Plocation = 'Aveiro' (project ⨝Dnum=Dnumber dept_location)
+π Fname, Address (employee ⨝ Dno=Dnum projects)
 ```
 
 ## ​Problema 5.2
@@ -67,13 +69,14 @@ Managers - Managers_with_Dependents
 ### _a)_
 
 ```
-... Write here your answer ...
+table = encomenda ⟗ fornecedor=nif fornecedor
+π nome σ fornecedor=null table
 ```
 
 ### _b)_
 
 ```
-... Write here your answer ...
+π nome, media (γ codProd;avg(unidades)-> media (item) ⨝ codProd=codigo produto)
 ```
 
 ### _c)_
