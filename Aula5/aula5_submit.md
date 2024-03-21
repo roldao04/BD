@@ -36,7 +36,8 @@ cdg = π supervisor_ssn←Ssn (σ Fname='Carlos' ∧ Minit='D' ∧ Lname='Gomes'
 ### _f)_
 
 ```
-... Write here your answer ...
+females = σ Sex='F' (employee)
+γ Dname; avg(Salary) -> avg_salary (females ⨝ department)
 ```
 
 ### _g)_
