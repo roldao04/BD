@@ -44,7 +44,8 @@ ESSN = π Essn (Project_Number ⨝ Hours > 20 ∧ Pnumber=Pno (works_on))
 ### _g)_
 
 ```
-... Write here your answer ...
+ThreeOrMoreDependent = σ count_dep>2 (γ Essn; count(Essn) -> count_dep (dependent))
+ThreeOrMoreDependent ⨝ Essn = Ssn (employee)
 ```
 
 ### _h)_
