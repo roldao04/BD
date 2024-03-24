@@ -82,13 +82,21 @@ table = encomenda ⟗ fornecedor=nif fornecedor
 ### _c)_
 
 ```
-... Write here your answer ...
+γ;avg(num_prod)->media (γ numEnc;count(codProd)-> num_prod (item))
 ```
 
 ### _d)_
 
 ```
-... Write here your answer ...
+aux = γ codProd,fornecedor;
+sum(unidades)->qnt_total (item
+                            ⨝numEnc=numero
+                        encomenda)
+π fornecedor.nome,produto.nome,qnt_total (aux
+                                             ⨝fornecedor=nif
+                                         fornecedor
+                                             ⨝codProd=codigo
+                                         produto)
 ```
 
 ## ​Problema 5.3
