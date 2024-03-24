@@ -96,35 +96,41 @@ table = encomenda ⟗ fornecedor=nif fornecedor
 ### _a)_
 
 ```
-... Write here your answer ...
+(π numUtente (paciente)) - (π numUtente (prescricao))
 ```
 
 ### _b)_
 
 ```
-... Write here your answer ...
+T = (π numMedico (prescricao)) ⨝ numMedico = numSNS (medico)
+γ especialidade; count(numSNS)->numPresc T
 ```
 
 ### _c)_
 
 ```
-... Write here your answer ...
+T = (π farmacia (prescricao)) ⨝ farmacia = nome (farmacia)
+γ farmacia; count(nome)->numPresc T
 ```
 
 ### _d)_
 
 ```
-... Write here your answer ...
+Farmacos_906 = π numReg (σ numReg = 906 (farmaceutica)) ⨝ numReg = numRegFarm (farmaco)
+Farmacos_Prescritos = π nome (Farmacos_906 ⨝ nome = nomeFarmaco (presc_farmaco))
+π nome (Farmacos_906) - Farmacos_Prescritos
 ```
 
 ### _e)_
 
 ```
-... Write here your answer ...
+T = π numPresc, farmacia (prescricao) ⨝ presc_farmaco ⨝ numRegFarm = numReg (farmaceutica)
+γ farmacia, nome; count(nome)->num_Farmacos_Vendidos (T)
 ```
 
 ### _f)_
 
 ```
-... Write here your answer ...
+T = σ num_dif_medicos > 1 γ numUtente; count(numMedico)->num_dif_medicos (π numUtente, numMedico (prescricao))
+π nome, numUtente (paciente) ⨝ T
 ```
