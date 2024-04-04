@@ -35,13 +35,18 @@ SELECT au_fname, au_lname, phone FROM authors;
 ### _f)_ Todas as editoras (publishers) que tenham ‘Bo’ em qualquer parte do nome;
 
 ```
-... Write here your answer ...
+SELECT pub_name FROM publishers
+WHERE pub_name LIKE '%Bo%';
 ```
 
 ### _g)_ Nome das editoras que têm pelo menos uma publicação do tipo ‘Business’;
 
 ```
-... Write here your answer ...
+SELECT pub_name FROM publishers
+WHERE pub_id IN (
+    SELECT pub_id FROM titles
+    WHERE type = 'business'
+);
 ```
 
 ### _h)_ Número total de vendas de cada editora;
