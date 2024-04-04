@@ -85,7 +85,7 @@ WHERE stor_name = 'Bookbeat';
 ### _l)_ Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
 
 ```
-... Write here your answer ...
+SELECT type, pub_id, AVG(price) AS avg_price, SUM(ytd_sales) AS total_sales
 ```
 
 ### _m)_ Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
