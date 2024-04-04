@@ -95,19 +95,27 @@ SELECT type, pub_id, AVG(price) AS avg_price, SUM(ytd_sales) AS total_sales
 ### _m)_ Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
 
 ```
-... Write here your answer ...
+SELECT type FROM titles AS t1
+WHERE advance > 1.5 * (SELECT AVG(advance) FROM titles AS t2 WHERE t1.type = t2.type)
 ```
 
 ### _n)_ Obter, para cada título, nome dos autores e valor arrecadado por estes com a sua venda;
 
 ```
-... Write here your answer ...
+SELECT title, au_fname, au_lname, price * ytd_sales * royalty /100 AS revenue
+FROM (((titleauthor INNER JOIN authors ON titleauthor.au_id = authors.au_id)
+INNER JOIN titles ON titleauthor.title_id = titles.title_id)
+INNER JOIN sales ON titles.title_id = sales.title_id)
+ORDER BY title, au_lname, au_fname;
 ```
 
 ### _o)_ Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, a faturação total, o valor da faturação relativa aos autores e o valor da faturação relativa à editora;
 
 ```
-... Write here your answer ...
+SELECT DISTINCT title, ytd_sales, price * ytd_sales AS total_revenue, price * ytd_sales * royalty / 100 AS authors_revenue, (price * ytd_sales) - (price * ytd_sales * royalty / 100) AS publisher_revenue
+FROM ((titles INNER JOIN sales ON titles.title_id = sales.title_id)
+INNER JOIN publishers ON titles.pub_id = publishers.pub_id)
+ORDER BY title;
 ```
 
 ### _p)_ Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, o nome de cada autor, o valor da faturação de cada autor e o valor da faturação relativa à editora;
