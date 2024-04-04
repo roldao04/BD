@@ -55,7 +55,10 @@ SELECT pub_name, SUM(ytd_sales) AS total_sales FROM publishers INNER JOIN titles
 ### _i)_ Número total de vendas de cada editora agrupado por título;
 
 ```
-... Write here your answer ...
+SELECT pub_name, title, SUM(ytd_sales) AS total_sales
+FROM (publishers JOIN titles ON publishers.pub_id = titles.pub_id)
+GROUP BY pub_name, title
+ORDER BY pub_name;
 ```
 
 ### _j)_ Nome dos títulos vendidos pela loja ‘Bookbeat’;
