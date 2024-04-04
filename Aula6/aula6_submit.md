@@ -17,19 +17,19 @@ SELECT au_fname, au_lname, phone FROM authors;
 ### _c)_ Consulta definida em b) mas ordenada pelo primeiro nome (ascendente) e depois o último nome (ascendente);
 
 ```
-... Write here your answer ...
+SELECT au_fname, au_lname, phone FROM authors ORDER BY au_fname, au_lname;
 ```
 
 ### _d)_ Consulta definida em c) mas renomeando os atributos para (first_name, last_name, telephone);
 
 ```
-... Write here your answer ...
+SELECT au_fname AS first_name, au_lname AS last_name, phone AS telephone FROM authors ORDER BY au_fname, au_lname;
 ```
 
 ### _e)_ Consulta definida em d) mas só os autores da Califórnia (CA) cujo último nome é diferente de ‘Ringer’;
 
 ```
-... Write here your answer ...
+SELECT au_fname AS first_name, au_lname AS last_name, phone AS telephone FROM authors WHERE state = 'CA' AND au_lname = 'Ringer' ORDER BY au_fname, au_lname;
 ```
 
 ### _f)_ Todas as editoras (publishers) que tenham ‘Bo’ em qualquer parte do nome;
