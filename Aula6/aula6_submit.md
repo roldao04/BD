@@ -29,7 +29,7 @@ SELECT au_fname AS first_name, au_lname AS last_name, phone AS telephone FROM au
 ### _e)_ Consulta definida em d) mas só os autores da Califórnia (CA) cujo último nome é diferente de ‘Ringer’;
 
 ```
-SELECT au_fname AS first_name, au_lname AS last_name, phone AS telephone FROM authors WHERE state = 'CA' AND au_lname = 'Ringer' ORDER BY au_fname, au_lname;
+SELECT au_fname AS first_name, au_lname AS last_name, phone AS telephone FROM authors WHERE state <> 'CA' AND au_lname = 'Ringer' ORDER BY au_fname, au_lname;
 ```
 
 ### _f)_ Todas as editoras (publishers) que tenham ‘Bo’ em qualquer parte do nome;
