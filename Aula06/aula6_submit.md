@@ -2,121 +2,121 @@
 
 ## Problema 6.1
 
-### *a)* Todos os tuplos da tabela autores (authors);
+### _a)_ Todos os tuplos da tabela autores (authors);
+
+```
+SELECT * FROM authors;
+```
+
+### _b)_ O primeiro nome, o último nome e o telefone dos autores;
+
+```
+SELECT au_fname, au_lname, phone FROM authors;
+```
+
+### _c)_ Consulta definida em b) mas ordenada pelo primeiro nome (ascendente) e depois o último nome (ascendente);
 
 ```
 ... Write here your answer ...
 ```
 
-### *b)* O primeiro nome, o último nome e o telefone dos autores;
+### _d)_ Consulta definida em c) mas renomeando os atributos para (first_name, last_name, telephone);
 
 ```
 ... Write here your answer ...
 ```
 
-### *c)* Consulta definida em b) mas ordenada pelo primeiro nome (ascendente) e depois o último nome (ascendente); 
+### _e)_ Consulta definida em d) mas só os autores da Califórnia (CA) cujo último nome é diferente de ‘Ringer’;
 
 ```
 ... Write here your answer ...
 ```
 
-### *d)* Consulta definida em c) mas renomeando os atributos para (first_name, last_name, telephone); 
+### _f)_ Todas as editoras (publishers) que tenham ‘Bo’ em qualquer parte do nome;
 
 ```
 ... Write here your answer ...
 ```
 
-### *e)* Consulta definida em d) mas só os autores da Califórnia (CA) cujo último nome é diferente de ‘Ringer’; 
+### _g)_ Nome das editoras que têm pelo menos uma publicação do tipo ‘Business’;
 
 ```
 ... Write here your answer ...
 ```
 
-### *f)* Todas as editoras (publishers) que tenham ‘Bo’ em qualquer parte do nome; 
+### _h)_ Número total de vendas de cada editora;
 
 ```
 ... Write here your answer ...
 ```
 
-### *g)* Nome das editoras que têm pelo menos uma publicação do tipo ‘Business’; 
+### _i)_ Número total de vendas de cada editora agrupado por título;
 
 ```
 ... Write here your answer ...
 ```
 
-### *h)* Número total de vendas de cada editora; 
+### _j)_ Nome dos títulos vendidos pela loja ‘Bookbeat’;
 
 ```
 ... Write here your answer ...
 ```
 
-### *i)* Número total de vendas de cada editora agrupado por título; 
+### _k)_ Nome de autores que tenham publicações de tipos diferentes;
 
 ```
 ... Write here your answer ...
 ```
 
-### *j)* Nome dos títulos vendidos pela loja ‘Bookbeat’; 
+### _l)_ Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
 
 ```
 ... Write here your answer ...
 ```
 
-### *k)* Nome de autores que tenham publicações de tipos diferentes; 
+### _m)_ Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
 
 ```
 ... Write here your answer ...
 ```
 
-### *l)* Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
+### _n)_ Obter, para cada título, nome dos autores e valor arrecadado por estes com a sua venda;
 
 ```
 ... Write here your answer ...
 ```
 
-### *m)* Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
+### _o)_ Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, a faturação total, o valor da faturação relativa aos autores e o valor da faturação relativa à editora;
 
 ```
 ... Write here your answer ...
 ```
 
-### *n)* Obter, para cada título, nome dos autores e valor arrecadado por estes com a sua venda;
+### _p)_ Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, o nome de cada autor, o valor da faturação de cada autor e o valor da faturação relativa à editora;
 
 ```
 ... Write here your answer ...
 ```
 
-### *o)* Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, a faturação total, o valor da faturação relativa aos autores e o valor da faturação relativa à editora;
+### _q)_ Lista de lojas que venderam pelo menos um exemplar de todos os livros;
 
 ```
 ... Write here your answer ...
 ```
 
-### *p)* Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, o nome de cada autor, o valor da faturação de cada autor e o valor da faturação relativa à editora;
+### _r)_ Lista de lojas que venderam mais livros do que a média de todas as lojas;
 
 ```
 ... Write here your answer ...
 ```
 
-### *q)* Lista de lojas que venderam pelo menos um exemplar de todos os livros;
+### _s)_ Nome dos títulos que nunca foram vendidos na loja “Bookbeat”;
 
 ```
 ... Write here your answer ...
 ```
 
-### *r)* Lista de lojas que venderam mais livros do que a média de todas as lojas;
-
-```
-... Write here your answer ...
-```
-
-### *s)* Nome dos títulos que nunca foram vendidos na loja “Bookbeat”;
-
-```
-... Write here your answer ...
-```
-
-### *t)* Para cada editora, a lista de todas as lojas que nunca venderam títulos dessa editora; 
+### _t)_ Para cada editora, a lista de todas as lojas que nunca venderam títulos dessa editora;
 
 ```
 ... Write here your answer ...
@@ -127,7 +127,7 @@
 ### ​5.1
 
 #### a) SQL DDL Script
- 
+
 [a) SQL DDL File](ex_6_2_1_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
@@ -136,55 +136,55 @@
 
 #### c) Queries
 
-##### *a)*
+##### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *b)* 
+##### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *c)* 
+##### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *d)* 
+##### _d)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *e)* 
+##### _e)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *f)* 
+##### _f)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *g)* 
+##### _g)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *h)* 
+##### _h)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *i)* 
+##### _i)_
 
 ```
 ... Write here your answer ...
@@ -193,7 +193,7 @@
 ### 5.2
 
 #### a) SQL DDL Script
- 
+
 [a) SQL DDL File](ex_6_2_2_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
@@ -202,27 +202,25 @@
 
 #### c) Queries
 
-##### *a)*
+##### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *b)* 
+##### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-##### *c)* 
+##### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-##### *d)* 
+##### _d)_
 
 ```
 ... Write here your answer ...
@@ -231,7 +229,7 @@
 ### 5.3
 
 #### a) SQL DDL Script
- 
+
 [a) SQL DDL File](ex_6_2_3_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
@@ -240,39 +238,37 @@
 
 #### c) Queries
 
-##### *a)*
+##### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *b)* 
+##### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-##### *c)* 
-
-```
-... Write here your answer ...
-```
-
-
-##### *d)* 
+##### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *e)* 
+##### _d)_
 
 ```
 ... Write here your answer ...
 ```
 
-##### *f)* 
+##### _e)_
+
+```
+... Write here your answer ...
+```
+
+##### _f)_
 
 ```
 ... Write here your answer ...
