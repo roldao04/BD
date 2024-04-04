@@ -67,7 +67,9 @@ GROUP BY pub_name;
 ### _j)_ Nome dos títulos vendidos pela loja ‘Bookbeat’;
 
 ```
-... Write here your answer ...
+SELECT title FROM titles
+INNER JOIN publishers ON titles.pub_id = publishers.pub_id
+WHERE pub_name = 'Bookbeat';
 ```
 
 ### _k)_ Nome de autores que tenham publicações de tipos diferentes;
