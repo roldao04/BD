@@ -78,7 +78,11 @@ WHERE pub_name = 'Bookbeat';
 ### _k)_ Nome de autores que tenham publicações de tipos diferentes;
 
 ```
-... Write here your answer ...
+SELECT au_fname AS first_name, au_lname AS last_name FROM ((authors
+INNER JOIN titleauthor ON authors.au_id = titleauthor.au_id)
+INNER JOIN titles ON titleauthor.title_id = titles.title_id)
+GROUP BY au_fname, au_lname
+HAVING COUNT (DISTINCT titles.type)>1
 ```
 
 ### _l)_ Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
