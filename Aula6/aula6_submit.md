@@ -42,17 +42,14 @@ WHERE pub_name LIKE '%Bo%';
 ### _g)_ Nome das editoras que têm pelo menos uma publicação do tipo ‘Business’;
 
 ```
-SELECT pub_name FROM publishers
-WHERE pub_id IN (
-    SELECT pub_id FROM titles
-    WHERE type = 'business'
-);
+SELECT pub_name FROM INNER JOIN titles ON publishers.pub_id = titles.pub_id
+WHERE type = 'Business';
 ```
 
 ### _h)_ Número total de vendas de cada editora;
 
 ```
-... Write here your answer ...
+
 ```
 
 ### _i)_ Número total de vendas de cada editora agrupado por título;
