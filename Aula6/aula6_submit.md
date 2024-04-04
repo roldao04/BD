@@ -42,14 +42,20 @@ WHERE pub_name LIKE '%Bo%';
 ### _g)_ Nome das editoras que têm pelo menos uma publicação do tipo ‘Business’;
 
 ```
-SELECT DISTINCT pub_name FROM publishers INNER JOIN titles ON publishers.pub_id = titles.pub_id
+SELECT DISTINCT pub_name
+FROM publishers
+INNER JOIN titles
+ON publishers.pub_id = titles.pub_id
 WHERE type = 'Business';
 ```
 
 ### _h)_ Número total de vendas de cada editora;
 
 ```
-SELECT pub_name, SUM(ytd_sales) AS total_sales FROM publishers INNER JOIN titles ON publishers.pub_id = titles.pub_id
+SELECT pub_name, SUM(ytd_sales) AS total_sales
+FROM ((sales INNER JOIN titles ON sales.title_id=titles.title_id)
+INNER JOIN publishers ON publishers.pub_id=titles.pub_id)
+GROUP BY pub_name;
 ```
 
 ### _i)_ Número total de vendas de cada editora agrupado por título;
@@ -64,7 +70,9 @@ ORDER BY pub_name;
 ### _j)_ Nome dos títulos vendidos pela loja ‘Bookbeat’;
 
 ```
-... Write here your answer ...
+SELECT title FROM titles
+INNER JOIN publishers ON titles.pub_id = publishers.pub_id
+WHERE pub_name = 'Bookbeat';
 ```
 
 ### _k)_ Nome de autores que tenham publicações de tipos diferentes;
