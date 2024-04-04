@@ -68,8 +68,9 @@ GROUP BY pub_name;
 
 ```
 SELECT title FROM titles
-INNER JOIN publishers ON titles.pub_id = publishers.pub_id
-WHERE pub_name = 'Bookbeat';
+INNER JOIN sales ON titles.title_id = sales.title_id
+INNER JOIN stores ON sales.stor_id = stores.stor_id
+WHERE stor_name = 'Bookbeat';
 ```
 
 ### _k)_ Nome de autores que tenham publicações de tipos diferentes;
