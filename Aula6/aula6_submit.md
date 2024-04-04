@@ -155,13 +155,20 @@ HAVING SUM(sales.qty)>(SELECT SUM(sales.qty)/COUNT(stor_id) FROM sales);
 ### _s)_ Nome dos títulos que nunca foram vendidos na loja “Bookbeat”;
 
 ```
-... Write here your answer ...
+SELECT title FROM titles
+WHERE title_id NOT IN (SELECT title_id FROM sales WHERE stor_id = (SELECT stor_id FROM stores WHERE stor_name = 'Bookbeat'));
 ```
 
 ### _t)_ Para cada editora, a lista de todas as lojas que nunca venderam títulos dessa editora;
 
 ```
-... Write here your answer ...
+SELECT pub_name, stor_name 
+FROM publishers
+INNER JOIN titles ON publishers.pub_id = titles.pub_id
+INNER JOIN sales ON titles.title_id = sales.title_id
+INNER JOIN stores ON sales.stor_id = stores.stor_id
+GROUP BY pub_name, stor_name
+HAVING COUNT(titles.title_id) = 0;
 ```
 
 ## Problema 6.2
