@@ -89,7 +89,9 @@ HAVING COUNT (DISTINCT titles.type)>1
 ### _l)_ Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
 
 ```
-SELECT type, pub_id, AVG(price) AS avg_price, SUM(ytd_sales) AS total_sales
+SELECT titles.pub_id, type, COUNT(ytd_sales) AS sales_amount, AVG(price) AS average_price
+FROM publishers JOIN titles ON titles.pub_id=publishers.pub_id
+GROUP BY titles.pub_id, type
 ```
 
 ### _m)_ Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
@@ -113,19 +115,33 @@ SELECT type, pub_id, AVG(price) AS avg_price, SUM(ytd_sales) AS total_sales
 ### _p)_ Obter uma lista que incluía o número de vendas de um título (ytd_sales), o seu nome, o nome de cada autor, o valor da faturação de cada autor e o valor da faturação relativa à editora;
 
 ```
-... Write here your answer ...
+SELECT title, au_fname, au_lname,
+	ytd_sales*price*royalty/100 as auths_revenue,
+	price*ytd_sales-price*ytd_sales*royalty/100 AS publisher_revenue
+FROM titles
+INNER JOIN titleauthor ON titleauthor.title_id=titles.title_id
+INNER JOIN authors ON authors.au_id=titleauthor.au_id
+GROUP BY title, price, au_fname, au_lname, ytd_sales, royalty
 ```
 
 ### _q)_ Lista de lojas que venderam pelo menos um exemplar de todos os livros;
 
 ```
-... Write here your answer ...
+SELECT stor_name FROM stores
+INNER JOIN sales ON stores.stor_id=sales.stor_id
+INNER JOIN titles ON sales.title_id=titles.title_id
+GROUP BY stores.stor_name
+HAVING COUNT(title)=(SELECT COUNT(title_id) FROM titles);
 ```
 
 ### _r)_ Lista de lojas que venderam mais livros do que a média de todas as lojas;
 
 ```
-... Write here your answer ...
+SELECT stor_name FROM stores
+INNER JOIN sales ON stores.stor_id=sales.stor_id
+INNER JOIN titles ON sales.title_id=titles.title_id
+GROUP BY stores.stor_name
+HAVING SUM(sales.qty)>(SELECT SUM(sales.qty)/COUNT(stor_id) FROM sales);
 ```
 
 ### _s)_ Nome dos títulos que nunca foram vendidos na loja “Bookbeat”;
