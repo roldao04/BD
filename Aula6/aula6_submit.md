@@ -71,8 +71,9 @@ ORDER BY pub_name;
 
 ```
 SELECT title FROM titles
-INNER JOIN publishers ON titles.pub_id = publishers.pub_id
-WHERE pub_name = 'Bookbeat';
+INNER JOIN sales ON titles.title_id = sales.title_id
+INNER JOIN stores ON sales.stor_id = stores.stor_id
+WHERE stor_name = 'Bookbeat';
 ```
 
 ### _k)_ Nome de autores que tenham publicações de tipos diferentes;
@@ -88,7 +89,7 @@ HAVING COUNT (DISTINCT titles.type)>1
 ### _l)_ Para os títulos, obter o preço médio e o número total de vendas agrupado por tipo (type) e editora (pub_id);
 
 ```
-... Write here your answer ...
+SELECT type, pub_id, AVG(price) AS avg_price, SUM(ytd_sales) AS total_sales
 ```
 
 ### _m)_ Obter o(s) tipo(s) de título(s) para o(s) qual(is) o máximo de dinheiro “à cabeça” (advance) é uma vez e meia superior à média do grupo (tipo);
