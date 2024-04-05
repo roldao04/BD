@@ -279,7 +279,7 @@ HAVING COUNT(titles.title_id) = 0;
 
 #### a) SQL DDL Script
 
-[a) SQL DDL File](ex_6_2_3_ddl.sql "SQLFileQuestion")
+[a) SQL DDL File](medicamentos_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
 
