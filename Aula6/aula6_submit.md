@@ -243,7 +243,7 @@ GROUP BY d.Dname;
 ##### _g)_
 
 ```
-... Write here your answer ...SELECT e.*
+SELECT e.*
 FROM employee e
 JOIN (
     SELECT Essn
