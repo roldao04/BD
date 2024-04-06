@@ -177,102 +177,159 @@ HAVING COUNT(titles.title_id) = 0;
 
 #### a) SQL DDL Script
 
-[a) SQL DDL File](ex_6_2_1_ddl.sql "SQLFileQuestion")
+[a) SQL DDL File](company_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
 
-[b) SQL Data Insertion File](ex_6_2_1_data.sql "SQLFileQuestion")
+[b) SQL Data Insertion File](company_data.sql "SQLFileQuestion")
 
 #### c) Queries
 
 ##### _a)_
 
 ```
-... Write here your answer ...
+SELECT e.Ssn, e.Fname
+FROM employee e
+JOIN department d ON e.Dno = d.Dnumber;
 ```
 
 ##### _b)_
 
 ```
-... Write here your answer ...
+SELECT e.Fname
+FROM employee e
+JOIN employee supervisor ON e.Super_ssn = supervisor.Ssn
+WHERE supervisor.Fname = 'Carlos' AND supervisor.Minit = 'D' AND supervisor.Lname = 'Gomes';
 ```
 
 ##### _c)_
 
 ```
-... Write here your answer ...
+SELECT p.Pnumber, p.Pname, SUM(w.Hours) AS TotalHours
+FROM project p
+JOIN works_on w ON p.Pnumber = w.Pno
+GROUP BY p.Pnumber, p.Pname;
 ```
 
 ##### _d)_
 
 ```
-... Write here your answer ...
+SELECT e.Fname
+FROM employee e
+JOIN works_on w ON e.Ssn = w.Essn
+JOIN project p ON w.Pno = p.Pnumber
+WHERE p.Pname = 'Aveiro Digital' AND p.Dnum = 3 AND w.Hours > 20;
 ```
 
 ##### _e)_
 
 ```
-... Write here your answer ...
+SELECT e.Fname
+FROM employee e
+LEFT JOIN works_on w ON e.Ssn = w.Essn
+WHERE w.Pno IS NULL;
 ```
 
 ##### _f)_
 
 ```
-... Write here your answer ...
+SELECT d.Dname, AVG(e.Salary) AS avg_salary
+FROM employee e
+JOIN department d ON e.Dno = d.Dnumber
+WHERE e.Sex = 'F'
+GROUP BY d.Dname;
 ```
 
 ##### _g)_
 
 ```
-... Write here your answer ...
+... Write here your answer ...SELECT e.*
+FROM employee e
+JOIN (
+    SELECT Essn
+    FROM dependent
+    GROUP BY Essn
+    HAVING COUNT(Essn) > 2
+) AS subquery ON e.Ssn = subquery.Essn;
 ```
 
 ##### _h)_
 
 ```
-... Write here your answer ...
+SELECT e.*
+FROM employee e
+WHERE e.Ssn IN (
+    SELECT d.Mgr_ssn
+    FROM department d
+)
+AND e.Ssn NOT IN (
+    SELECT d.Essn
+    FROM dependent d
+);
 ```
 
 ##### _i)_
 
 ```
-... Write here your answer ...
+SELECT e.Fname, e.Address
+FROM employee e
+JOIN works_on w ON e.Ssn = w.Essn
+JOIN project p ON w.Pno = p.Pnumber
+JOIN department d ON e.Dno = d.Dnumber
+JOIN dept_location dl ON d.Dnumber = dl.Dnumber
+WHERE p.Plocation = 'Aveiro' AND dl.Dlocation != 'Aveiro';
 ```
 
 ### 5.2
 
 #### a) SQL DDL Script
 
-[a) SQL DDL File](ex_6_2_2_ddl.sql "SQLFileQuestion")
+[a) SQL DDL File](encomendas_ddl.sql "SQLFileQuestion")
 
 #### b) Data Insertion Script
 
-[b) SQL Data Insertion File](ex_6_2_2_data.sql "SQLFileQuestion")
+[b) SQL Data Insertion File](encomendas_data.sql "SQLFileQuestion")
 
 #### c) Queries
 
 ##### _a)_
 
 ```
-... Write here your answer ...
+SELECT f.nome
+FROM fornecedor f
+LEFT JOIN encomenda e ON f.nif = e.fornecedor
+WHERE e.numero IS NULL;
 ```
 
 ##### _b)_
 
 ```
-... Write here your answer ...
+SELECT p.nome, AVG(i.unidades) AS media
+FROM item i
+JOIN produto p ON i.codProd = p.codigo
+GROUP BY p.nome;
 ```
 
 ##### _c)_
 
 ```
-... Write here your answer ...
+SELECT AVG(num_prod) AS media
+FROM (
+    SELECT count(i.codProd) AS num_prod
+    FROM item i
+    GROUP BY i.numEnc
+) AS subquery;
 ```
 
 ##### _d)_
 
 ```
-... Write here your answer ...
+SELECT f.nome, p.nome, SUM(i.unidades) AS qnt_total
+FROM item i
+JOIN encomenda e ON i.numEnc = e.numero
+JOIN fornecedor f ON e.fornecedor = f.nif
+JOIN produto p ON i.codProd = p.codigo
+GROUP BY f.nome, p.nome;
 ```
 
 ### 5.3
@@ -283,42 +340,68 @@ HAVING COUNT(titles.title_id) = 0;
 
 #### b) Data Insertion Script
 
-[b) SQL Data Insertion File](ex_6_2_3_data.sql "SQLFileQuestion")
+[b) SQL Data Insertion File](medicamentos_data.sql "SQLFileQuestion")
 
 #### c) Queries
 
 ##### _a)_
 
 ```
-... Write here your answer ...
+SELECT numUtente
+FROM paciente
+EXCEPT
+SELECT numUtente
+FROM prescricao;
 ```
 
 ##### _b)_
 
 ```
-... Write here your answer ...
+SELECT m.especialidade, COUNT(p.numMedico) AS numPresc
+FROM prescricao p
+JOIN medico m ON p.numMedico = m.numSNS
+GROUP BY m.especialidade;
 ```
 
 ##### _c)_
 
 ```
-... Write here your answer ...
+SELECT p.farmacia, COUNT(f.nome) AS numPresc
+FROM prescricao p
+JOIN farmacia f ON p.farmacia = f.nome
+GROUP BY p.farmacia;
 ```
 
 ##### _d)_
 
 ```
-... Write here your answer ...
+SELECT f.nome
+FROM farmaco f
+JOIN farmaceutica fa ON f.numRegFarm = fa.numReg
+LEFT JOIN presc_farmaco pf ON f.nome = pf.nomeFarmaco AND fa.numReg = 906
+WHERE pf.nomeFarmaco IS NULL;
 ```
 
 ##### _e)_
 
 ```
-... Write here your answer ...
+SELECT p.farmacia, fa.nome, COUNT(fa.nome) AS num_Farmacos_Vendidos
+FROM prescricao p
+JOIN presc_farmaco pf ON p.numPresc = pf.numPresc
+JOIN farmaco f ON pf.numRegFarm = f.codigo
+JOIN farmaceutica fa ON f.numRegFarm = fa.numReg
+GROUP BY p.farmacia, fa.nome;
 ```
 
 ##### _f)_
 
 ```
-... Write here your answer ...
+SELECT pa.nome, pa.numUtente
+FROM paciente pa
+JOIN (
+    SELECT p.numUtente
+    FROM prescricao p
+    GROUP BY p.numUtente
+    HAVING COUNT(DISTINCT p.numMedico) > 1
+) AS T ON pa.numUtente = T.numUtente;
 ```
