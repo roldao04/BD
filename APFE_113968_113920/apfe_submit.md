@@ -6,10 +6,20 @@
 
 ## Introdução / Introduction
  
-Base de dados focada em atributos detalhados de jogadores de futebol. É possível realizar todas as operações CRUD em jogadores e atributos. O objetivo é poder comparar jogadores em vários aspetos, tal como analisar diferentes equipas com base nos jogadores (calcular odds de matchups por exemplo).
+O ScoreSavant funciona como um data hub que oferece estatísticas detalhadas sobre jogadores de futebol. A base de dados incorpora uma grande variedade de informações de jogadores, abrangendo atributos técnicos, mentais e físicos, além de suas posições e papéis específicos em campo. A estrutura do banco de dados foi desenhada para permitir comparações detalhadas entre jogadores e equipas, fundamentadas nos seus jogadores, facilitando análises de desempenho e projeções táticas.
 
 
 ## ​Análise de Requisitos / Requirements
+
+Cliente:
+- Pesquisar por Jogadores com Filtros Específicos
+- Ver Página Detalhada de um Jogador
+- Fazer Comparações entre Jogadores
+- Fazer Comparações entre Clubes
+
+Admin:
+- Adicionar Jogadores
+- Gerir Informações sobre os Jogadores
 
 
 ## DER
