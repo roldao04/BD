@@ -15,7 +15,8 @@ Cliente:
 - Pesquisar por Jogadores com Filtros Específicos
 - Ver Página Detalhada de um Jogador
 - Fazer Comparações entre Jogadores
-- Fazer Comparações entre Clubes
+- Fazer Comparações entre Planteis de Clubes
+- Fazer Comparações dentro da Liga e entre Ligas
 
 Admin:
 - Adicionar Jogadores
