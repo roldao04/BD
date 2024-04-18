@@ -63,21 +63,25 @@ R5 = {<u>F</u>, G, H}
 ### *a)*
 
 ```
-... Write here your answer ...
+A chave de R é {A, B}.
 ```
 
 
 ### *b)* 
 
 ```
-... Write here your answer ...
+R1 = {<u>A</u>, <u>B</u>, C, E}
+R2 = {<u>D</u>, E}
+R3 = {<u>C</u>, A}
 ```
 
 
 ### *c)* 
 
 ```
-... Write here your answer ...
+R1 = {<u>A</u>, <u>B</u>, C, E}
+R2 = {<u>D</u>, E}
+R3 = {<u>C</u>, A}
 ```
 
 
@@ -87,24 +91,30 @@ R5 = {<u>F</u>, G, H}
 ### *a)*
 
 ```
-... Write here your answer ...
+A chave é {A,B}
 ```
 
 ### *b)* 
 
 ```
-... Write here your answer ...
+R1 = {<u>A</u>, <u>B</u>, D, E}
+R2 = {<u>A</u>, C}
+R3 = {<u>C</u>, D}
 ```
 
 
 ### *c)* 
 
 ```
-... Write here your answer ...
+R1 = {<u>A</u>, <u>B</u>, D, E}
+R2 = {<u>A</u>, C}
+R3 = {<u>C</u>, D}
 ```
 
 ### *d)* 
 
 ```
-... Write here your answer ...
+R1 = {<u>A</u>, <u>B</u>, D, E}
+R2 = {<u>A</u>, C}
+R3 = {<u>C</u>, D}
 ```
