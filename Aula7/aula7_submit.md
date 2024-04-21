@@ -1,9 +1,8 @@
 # BD: Guião 7
 
+## ​7.2
 
-## ​7.2 
- 
-### *a)*
+### _a)_
 
 ```
 ... Write here your answer ...
@@ -12,84 +11,73 @@ It is possible to <u>underline</u> -> {A, B,.. }
 -> R2 (B,F)
 ```
 
-### *b)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
-
-
-
 
 ## ​7.3
- 
-### *a)*
+
+### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *b)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *c)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
+### _c)_
+
+```
+... Write here your answer ...
+```
 
 ## ​7.4
- 
-### *a)*
+
+### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *b)* 
-
-```
-... Write here your answer ...
-```
-
-
-### *c)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
+### _c)_
 
+```
+... Write here your answer ...
+```
 
 ## ​7.5
- 
-### *a)*
+
+### _a)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *b)* 
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-
-### *c)* 
+### _c)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *d)* 
+### _d)_
 
 ```
 ... Write here your answer ...
