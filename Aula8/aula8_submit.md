@@ -53,5 +53,15 @@ Complete the following table.
 ## ​8.3.
 
 ```
-... Write here your answer ...
+-- Índice para Funcionários por Nome
+CREATE INDEX idx_employee_name ON Employees (Fname, Lname);
+
+-- Índice para Funcionários por Departamento
+CREATE INDEX idx_employee_department ON Employees (Dno);
+
+-- Índice para Projetos por Departamento
+CREATE INDEX idx_projects_department ON Projects (Dnum);
+
+-- Índice para Dependentes por Funcionário
+CREATE INDEX idx_dependents_employee ON Dependents (Essn);
 ```
