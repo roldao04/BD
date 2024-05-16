@@ -112,14 +112,14 @@ begin
     declare @mgr_ssn char(9);
     declare @mgr_salary decimal(10,2);
 
-    declare cur cursor for 
+    declare cur cursor for
     select ssn, salary, dno from inserted;
 
     open cur;
     fetch next from cur into @emp_ssn, @empl_salary, @empl_dno;
 
     while @@fetch_status = 0
-    begin 
+    begin
         select @mgr_ssn = super_ssn from employee where ssn = @emp_ssn;
         select @mgr_salary = salary from employee where ssn = @mgr_ssn;
 
@@ -235,5 +235,26 @@ END;
 ### _i)_
 
 ```
-... Write here your answer ...
+Stored Procedures:
+    - Util para procedimentos complexos;
+    - Permite transações;
+    - Parametros de entrada e saida;
+    - Pode chamar outras stored procedures;
+    - Compilado e otimizado;
+
+UDFs:
+    - Retornam sempre o mesmo valor para os mesmos parametros (determinista);
+    - Não podem modificar dados (INSERT, UPDATE, DELETE);
+    - Apenas podem retornar um valor;
+    - Não podem chamar stored procedures;
+    - Não podem ter transações;
 ```
+
+| Aspect                   | Stored Procedures (SPs)                          | User-Defined Functions (UDFs)                     |
+| ------------------------ | ------------------------------------------------ | ------------------------------------------------- |
+| **Complexidade**         | Suportam operações complexas e transações        | Simples, para cálculos e retornos específicos     |
+| **Manipulação de Dados** | Podem modificar dados                            | Não podem modificar dados                         |
+| **Execução**             | Executadas de forma independente                 | Chamadas dentro de consultas SQL                  |
+| **Parâmetros**           | Suportam múltiplos parâmetros de entrada e saída | Geralmente um único valor de retorno              |
+| **Uso em Consultas**     | Não pode ser usada diretamente em SELECT         | Pode ser usada diretamente em SELECT, WHERE, etc. |
+| **Segurança**            | Pode fornecer uma camada adicional de segurança  | Focada em encapsular lógica de consulta           |
