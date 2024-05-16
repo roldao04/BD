@@ -1,15 +1,65 @@
 # BD: Guião 9
 
-
 ## ​9.1
- 
-### *a)*
+
+### _a)_
+
+```sql
+CREATE PROCEDURE remove_funcionario
+    @ssn CHAR(9),
+AS
+BEGIN
+    DELETE FROM Dependente
+    WHERE Essn = @ssn;
+
+    DELETE FROM Works_on
+    WHERE Essn = @ssn;
+
+    UPDATE Department SET Mgr_ssn = NULL
+    WHERE Mgr_ssn = @ssn;
+
+    UPDATE Employee SET Super_ssn = NULL
+    WHERE Super_ssn = @ssn;
+
+    DELETE FROM Employee
+    WHERE Ssn = @ssn;
+END;
+
+```
+
+### _b)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *b)* 
+### _c)_
+
+```sql
+CREATE TRIGGER dep_manage_lock ON Department INSTEAD OF INSERT, UPDATE
+AS
+    BEGIN
+        IF (SELECT count(*) FROM inserted) > 0
+        BEGIN
+            DECLARE @employee_ssn CHAR(9);
+            @employee_ssn = (SELECT Mgr_ssn FROM inserted);
+
+            IF (@employee_ssn) IS NULL OR ((SELECT count(*) FROM Employee WHERE Ssn=@employee_ssn) = 0)
+                                RAISERROR('employee doesnt exist', 16, 1);
+            ELSE
+                BEGIN
+                    IF (SELECT COUNT(Dnumber) FROM Department WHERE Mgr_ssn=@employee_ssn) >=1
+                        RAISERROR('employee cannot manage more than one department', 16, 1);
+                    ELSE
+                        INSERT INTO Department SELECT * FROM inserted;
+                END
+        END
+    END;
+
+
+```
+
+### _d)_
 
 ```sql
 create procedure getManagersAndLongestServing
@@ -58,43 +108,31 @@ begin
 end;
 ```
 
-### *c)* 
+### _e)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *d)* 
+### _f)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *e)* 
+### _g)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *f)* 
+### _h)_
 
 ```
 ... Write here your answer ...
 ```
 
-### *g)* 
-
-```
-... Write here your answer ...
-```
-
-### *h)* 
-
-```
-... Write here your answer ...
-```
-
-### *i)* 
+### _i)_
 
 ```
 ... Write here your answer ...
