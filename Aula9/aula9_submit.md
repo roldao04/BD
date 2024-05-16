@@ -141,16 +141,15 @@ end;
 ### _e)_
 
 ```sql
-CREATE FUNCTION get_name_location (@employee_ssn NVARCHAR(9))
+CREATE FUNCTION dbo.get_name_location (@employee_ssn NVARCHAR(9))
 RETURNS TABLE
 AS
-RETURN(
-    SELECT p.name AS project_name, p.location AS project_location
+RETURN (
+    SELECT p.Pname AS project_name, p.Plocation AS project_location
     FROM project p
-    JOIN works_on w ON p.pnumber = w.pnumber
-    WHERE w.essn = @employee_ssn
+    JOIN works_on w ON p.Pnumber = w.Pno
+    WHERE w.Essn = @employee_ssn
 );
-
 ```
 
 ### _f)_
@@ -185,8 +184,24 @@ select * from dbo.getEmployeesAboveAverageSalary(1);
 
 ### _h)_
 
-```
-... Write here your answer ...
+```sql
+create trigger delete_department on department
+after delete
+as
+begin
+    if not exists (select * from information_schema.tables where table_schema = 'dbo' and table_name = 'deleted_department')
+    begin
+        create table department_deleted (
+            dnumber int,
+            dname nvarchar(30),
+            mgr_ssn char(9),
+            mgr_start_date date
+        );
+    end;
+
+    insert into dbo.departament_deleted(dnumber, dname, mgr_ssn, mgr_start_date)
+    select dnumber, dname, mgr_ssn, mgr_start_date from deleted;
+end;
 ```
 
 ### _i)_
