@@ -197,12 +197,12 @@ BEGIN
 
     DECLARE ProjectCursor CURSOR FOR
     SELECT p.Pnumber, p.Pname, p.Plocation,
-           SUM(e.salary / 160 * w.hours) AS MonthlyLaborBudget
+           SUM(e.Salary / 160 * w.Hours) AS MonthlyLaborBudget
     FROM project p
-    JOIN works_on w ON p.Pnumber = w.Pnumber
-    JOIN employee e ON w.ssn = e.ssn
-    WHERE p.dnum = @dnum
-    GROUP BY p.pnumber, p.pname, p.plocation;
+    JOIN works_on w ON p.Pnumber = w.Pno
+    JOIN employee e ON w.Essn = e.Ssn
+    WHERE p.Dnum = @dnum
+    GROUP BY p.Pnumber, p.Pname, p.Plocation;
 
     OPEN ProjectCursor;
     FETCH NEXT FROM ProjectCursor INTO @PNumber, @ProjectName, @ProjectLocation, @MonthlyBudget;
@@ -222,7 +222,6 @@ BEGIN
 
     RETURN;
 END;
-
 ```
 
 ### _h)_
