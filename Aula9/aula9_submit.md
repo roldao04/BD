@@ -76,7 +76,7 @@ begin
         datediff(year, d.mgr_start_date, getdate()) as yearsasmanager
     from
         employee e
-    inner join 
+    inner join
         department d on e.ssn = d.mgr_ssn;
 
     create table #longestservingmanager (
@@ -129,8 +129,51 @@ RETURN(
 
 ### _g)_
 
-```
-... Write here your answer ...
+```sql
+CREATE FUNCTION dbo.GetDepartmentProjects(@dnum INT)
+RETURNS @ProjectTable TABLE
+(
+    ProjectName VARCHAR(255),
+    ProjectLocation VARCHAR(255),
+    MonthlyLaborBudget DECIMAL(18, 2),
+    CumulativeBudget DECIMAL(18, 2)
+)
+AS
+BEGIN
+    DECLARE @ProjectName VARCHAR(255),
+            @ProjectLocation VARCHAR(255),
+            @PNumber INT,
+            @MonthlyBudget DECIMAL(18, 2),
+            @CumulativeBudget DECIMAL(18, 2) = 0;
+
+    DECLARE ProjectCursor CURSOR FOR
+    SELECT p.Pnumber, p.Pname, p.Plocation,
+           SUM(e.salary / 160 * w.hours) AS MonthlyLaborBudget
+    FROM project p
+    JOIN works_on w ON p.Pnumber = w.Pnumber
+    JOIN employee e ON w.ssn = e.ssn
+    WHERE p.dnum = @dnum
+    GROUP BY p.pnumber, p.pname, p.plocation;
+
+    OPEN ProjectCursor;
+    FETCH NEXT FROM ProjectCursor INTO @PNumber, @ProjectName, @ProjectLocation, @MonthlyBudget;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        SET @CumulativeBudget = @CumulativeBudget + @MonthlyBudget;
+
+        INSERT INTO @ProjectTable (ProjectName, ProjectLocation, MonthlyLaborBudget, CumulativeBudget)
+        VALUES (@ProjectName, @ProjectLocation, @MonthlyBudget, @CumulativeBudget);
+
+        FETCH NEXT FROM ProjectCursor INTO @PNumber, @ProjectName, @ProjectLocation, @MonthlyBudget;
+    END;
+
+    CLOSE ProjectCursor;
+    DEALLOCATE ProjectCursor;
+
+    RETURN;
+END;
+
 ```
 
 ### _h)_
