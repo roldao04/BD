@@ -55,8 +55,6 @@ AS
                 END
         END
     END;
-
-
 ```
 
 ### _d)_
@@ -67,8 +65,17 @@ AS
 
 ### _e)_
 
-```
-... Write here your answer ...
+```sql
+CREATE FUNCTION get_name_location (@employee_ssn NVARCHAR(9))
+RETURNS TABLE
+AS
+RETURN(
+    SELECT p.name AS project_name, p.location AS project_location
+    FROM project p
+    JOIN works_on w ON p.pnumber = w.pnumber
+    WHERE w.essn = @employee_ssn
+);
+
 ```
 
 ### _f)_
