@@ -181,14 +181,17 @@ BEGIN
 
     WHILE @@FETCH_STATUS = 0
     BEGIN
-        -- Delete leagues associated with the deleted nation
-        DELETE FROM League WHERE nation_id = @nation_id;
+        -- Delete players of the nation
+        DELETE FROM Player WHERE nation_id = @nation_id;
 
-        -- Delete clubs associated with the deleted nation
+        -- Delete the clubs of the nation
         DELETE FROM Club WHERE nation_id = @nation_id;
 
-        -- Delete players of the deleted nationality
-        DELETE FROM Player WHERE nation_id = @nation_id;
+        -- Delete the leagues of the nation
+        DELETE FROM League WHERE nation_id = @nation_id;
+
+        -- Delete the nation
+        DELETE FROM Nation WHERE nation_id = @nation_id;
 
         FETCH NEXT FROM deleted_nation_cursor INTO @nation_id;
     END

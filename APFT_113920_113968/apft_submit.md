@@ -521,6 +521,90 @@ END;
 GO
 ```
 
+#### trg_after_delete_nation
+Os nossos Triggers de delete foram implementados para funcionar de forma 'cascade'. Este Trigger é executado em vez da eliminação de uma nação e é responsável por eliminar todos os jogadores dessa nacionalidade, depois os clubes, que por sua vez eleminam os seus jogadores, após isso as ligas e por fim o país.
+```sql
+CREATE TRIGGER trg_after_delete_nation
+ON Nation
+AFTER DELETE
+AS
+BEGIN
+    -- Declare variables
+    DECLARE @nation_id INT;
+
+    -- Loop through each deleted nation
+    DECLARE deleted_nation_cursor CURSOR FOR
+    SELECT nation_id FROM DELETED;
+
+    OPEN deleted_nation_cursor;
+
+    FETCH NEXT FROM deleted_nation_cursor INTO @nation_id;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Delete players of the nation
+        DELETE FROM Player WHERE nation_id = @nation_id;
+
+        -- Delete the clubs of the nation
+        DELETE FROM Club WHERE nation_id = @nation_id;
+
+        -- Delete the leagues of the nation
+        DELETE FROM League WHERE nation_id = @nation_id;
+
+        -- Delete the nation
+        DELETE FROM Nation WHERE nation_id = @nation_id;
+
+        FETCH NEXT FROM deleted_nation_cursor INTO @nation_id;
+    END
+
+    CLOSE deleted_nation_cursor;
+    DEALLOCATE deleted_nation_cursor;
+END;
+GO
+``` 
+
+Os outros Triggers de delete são semelhantes a este, mas para as outras tabelas.
+
+Todas as restantes Triggers presentes no ficheiro: [Triggers](sql/Triggers.sql "SQLFileQuestion").
+
+
+### Views
+#### randomPlayer
+Esta View é utilizada para obter um jogador aleatório da base de dados.
+```sql
+CREATE VIEW RandomPlayer AS
+SELECT TOP 1 
+    p.player_id, 
+    p.name AS player_name, 
+    p.nation_id, 
+    n.name AS nation_name, 
+    p.club_id, 
+    c.name AS club_name,
+    p.url AS player_url
+FROM 
+    Player p
+JOIN 
+    Nation n ON p.nation_id = n.nation_id
+JOIN 
+    Club c ON p.club_id = c.club_id
+ORDER BY 
+    NEWID();
+GO
+```
+
+#### getPhysicalAttributes
+Esta View é utilizada para obter os atributos físicos, há outras views para os outros tipos de atributos.
+```sql
+CREATE VIEW [dbo].[GetPhysicalAtt]
+AS
+SELECT
+    pa.att_id AS AttributeID
+FROM
+    Physical_Att pa
+GO
+```
+
+Todas as restantes Views presentes no ficheiro: [Views](sql/Views.sql "SQLFileQuestion").
 
 ## Normalização/Normalization
 
