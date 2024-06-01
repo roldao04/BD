@@ -34,3 +34,4 @@ C:\Users\joaom\OneDrive\Ambiente de Trabalho\Uni\2ºAno\Segundo Semestre\BD\Aula
 C:\Users\joaom\OneDrive\Ambiente de Trabalho\Uni\2ºAno\Segundo Semestre\BD\Aula1\MyWinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\joaom\OneDrive\Ambiente de Trabalho\Uni\2ºAno\Segundo Semestre\BD\Aula1\MyWinFormsApp\obj\Debug\net8.0-windows\MyWinFormsApp.csproj.AssemblyReference.cache
 C:\Users\joaom\OneDrive\Ambiente de Trabalho\Uni\2ºAno\Segundo Semestre\BD\Aula1\MyWinFormsApp\obj\Debug\net8.0-windows\MyWinFor.317D71AD.Up2Date
+C:\Users\joaom\OneDrive\Ambiente de Trabalho\Uni\2ºAno\Segundo Semestre\BD\Aula1\MyWinFormsApp\obj\Debug\net8.0-windows\MyWinFormsApp.sourcelink.json
