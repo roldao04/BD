@@ -15,8 +15,21 @@ A nossa intenção com este projeto foi criar uma base de dados que permitisse a
 Como trabalho futuro gostaríamos de adicionar mais funcionalidades à base de dados como uma pesquisa mais avançada, tendo mais em conta os atributos dos jogadores, e adicionar mais tabelas com informação sobre equipas, competições, treinadores, entre outros.
 
 ## ​Análise de Requisitos / Requirements
-
-Escreve JohnnyBoi
+### Requisitos Funcionais:
+- Cadastro de Jogadores:
+    - Inserir novos jogadores na base de dados.
+    - Associar jogadores a clubes, ligas, países e contratos.
+- Consulta de Jogadores:
+    - Pesquisar jogadores por diferentes atributos (nome, nacionalidade, idade, clube, posição, etc.).
+    - Paginação dos resultados de pesquisa.
+- Consulta de Clubes e Ligas:
+    - Obter informações detalhadas sobre clubes e ligas, incluindo o número de jogadores, média de salários e valor de mercado.
+- Gestão de Atributos:
+    - Calcular ratings de 'role' do jogador de acordo com os atributos e posições dele mesmo.
+- Funcionalidades Adicionais:
+    - Marcar jogadores como favoritos.
+    - Obter jogadores aleatórios.
+    - Implementar triggers para manter consistência nos dados (e.g., atualizar informações de clubes após a inserção de jogadores).
 
 ## Entidades / Entities
 
@@ -43,11 +56,6 @@ Retiramos também o atributo "rating" relacionado com a avaliação do jogador d
 A idade do jogador deixou de ser um atributo calculado.
 Adicionamos também à tabela Nation o atributo id.
 Decidimos adicionar a tabela StaredPlayer que permite guardar os jogadores como favoritos.
-
-# FALTA TIRAR O RATING DO DER
-# TIRAR A IDADE COMO CALCULADA
-# ADICIONAR ID À NATION
-# ADICIONAR A TABELA STAREDPLAYER
 
 ## ER - Esquema Relacional/Relational Schema
 
