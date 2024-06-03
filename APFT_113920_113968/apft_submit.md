@@ -1,11 +1,12 @@
 # BD: Trabalho Prático APF-T
 
 **Grupo**: P5G5
+
 - João Roldão, MEC: 113920
 - Guilherme Rosa, MEC: 113968
 
 ## Introdução / Introduction
- 
+
 O ScoreSavant foi deselvolvido com o objetivo de pesquisar e analisar de forma aprofundada atributos de jogadores de futebol. Para tal, como base para este projeto foi utilizada a base de dados do jogos Football Manager.
 O Football Manager é um jogo de simulação de futebol que permite ao jogador ser o treinador de uma equipa de futebol. O jogo é conhecido por ter uma base de dados muito extensa e detalhada, com informações sobre jogadores, equipas, competições, entre outros.
 Para o nosso projeto final decidimo-nos focar principalmente na informação dos jogadores e dos seus atributos e como isso pode influenciar o papel que o jogador é mais adequado a desempenhar dentro de campo.
@@ -15,21 +16,23 @@ A nossa intenção com este projeto foi criar uma base de dados que permitisse a
 Como trabalho futuro gostaríamos de adicionar mais funcionalidades à base de dados como uma pesquisa mais avançada, tendo mais em conta os atributos dos jogadores, e adicionar mais tabelas com informação sobre equipas, competições, treinadores, entre outros.
 
 ## ​Análise de Requisitos / Requirements
+
 ### Requisitos Funcionais:
+
 - Cadastro de Jogadores:
-    - Inserir novos jogadores na base de dados.
-    - Associar jogadores a clubes, ligas, países e contratos.
+  - Inserir novos jogadores na base de dados.
+  - Associar jogadores a clubes, ligas, países e contratos.
 - Consulta de Jogadores:
-    - Pesquisar jogadores por diferentes atributos (nome, nacionalidade, idade, clube, posição, etc.).
-    - Paginação dos resultados de pesquisa.
+  - Pesquisar jogadores por diferentes atributos (nome, nacionalidade, idade, clube, posição, etc.).
+  - Paginação dos resultados de pesquisa.
 - Consulta de Clubes e Ligas:
-    - Obter informações detalhadas sobre clubes e ligas, incluindo o número de jogadores, média de salários e valor de mercado.
+  - Obter informações detalhadas sobre clubes e ligas, incluindo o número de jogadores, média de salários e valor de mercado.
 - Gestão de Atributos:
-    - Calcular ratings de 'role' do jogador de acordo com os atributos e posições dele mesmo.
+  - Calcular ratings de 'role' do jogador de acordo com os atributos e posições dele mesmo.
 - Funcionalidades Adicionais:
-    - Marcar jogadores como favoritos.
-    - Obter jogadores aleatórios.
-    - Implementar triggers para manter consistência nos dados (e.g., atualizar informações de clubes após a inserção de jogadores).
+  - Marcar jogadores como favoritos.
+  - Obter jogadores aleatórios.
+  - Implementar triggers para manter consistência nos dados (e.g., atualizar informações de clubes após a inserção de jogadores).
 
 ## Entidades / Entities
 
@@ -49,7 +52,7 @@ Como trabalho futuro gostaríamos de adicionar mais funcionalidades à base de d
 
 ![DER Diagram!](der.png "AnImage")
 
-### APFE 
+### APFE
 
 Em relação à primeira entrega adicionamos mais atributos ao clube, especialmente atributos que são calculados a partir dos jogadores que o clube tem.
 Retiramos também o atributo "rating" relacionado com a avaliação do jogador de acordo com o papel que está a desempenhar em campo e os seus atributos. Em vez de ter isso na nossa base de dados decidimos que seria melhor realizar esse calculo no servidor já que a forma para calcular este "rating" poderia ser alterada no futuro o que implicava um recálculo da base de dados inteira.
@@ -65,7 +68,7 @@ Decidimos adicionar a tabela StaredPlayer que permite guardar os jogadores como 
 
 ### APFE
 
-A principal mudança efetuada no ER foi a retirar a ligação entre a tabela OutfieldAttributeRating e as respetivas tabelas dos attributos específicos de um Outfield Player (atributos técnicos, mentais e físicos). Fizemos a mesma coisa com a tabela GoalkeeperAttributeRating em que retira-mos a ligação com a tabela dos atributos específicos de um Goalkeeper (atributos de guarda-redes, mentais e físicos). Isto foi feito porque da maneira anterior a base de dados não estava a funcionar como pretendido. 
+A principal mudança efetuada no ER foi a retirar a ligação entre a tabela OutfieldAttributeRating e as respetivas tabelas dos attributos específicos de um Outfield Player (atributos técnicos, mentais e físicos). Fizemos a mesma coisa com a tabela GoalkeeperAttributeRating em que retira-mos a ligação com a tabela dos atributos específicos de um Goalkeeper (atributos de guarda-redes, mentais e físicos). Isto foi feito porque da maneira anterior a base de dados não estava a funcionar como pretendido.
 A solução foi ligar diretamente essas tabelas (OutfieldAttributeRating e GoalkeeperAttributeRating) com a tabela Attribute e a maneira de verificar que a distribuição de atributos para cada tipo de Player estava correta foi utilizando views e comparando nas stored procedures usadas para a inserção de um jogador.
 Adicionamos também uma tabela que premite guardar os jogares como favoritos, a tabela StaredPlayer.
 
@@ -78,8 +81,11 @@ Adicionamos também uma tabela que premite guardar os jogares como favoritos, a 
 Como vamos poder ver nos exemplos de Stored Procedures, Triggers e User Defined Functions, a manipulação de dados é feita através de SQL DML.
 
 ### Stored Procedures
+
 #### addPlayer
-Esta Stored Procedure é a nossa Query mais complexa. Ela é responsável por adicionar um jogador à base de dados. 
+
+Esta Stored Procedure é a nossa Query mais complexa. Ela é responsável por adicionar um jogador à base de dados.
+
 ```sql
 CREATE PROCEDURE dbo.AddPlayer
     @name NVARCHAR(255),
@@ -150,8 +156,8 @@ BEGIN
     END
 
     -- Add Base Player
-    EXEC dbo.AddBasePlayer @name = @name, @age = @age, @weight = @weight, @height = @height, 
-                           @nation_id = @nation_id, @club_id = @club_id, @foot = @foot, 
+    EXEC dbo.AddBasePlayer @name = @name, @age = @age, @weight = @weight, @height = @height,
+                           @nation_id = @nation_id, @club_id = @club_id, @foot = @foot,
                            @value = @value, @player_type = @player_type, @url = @url;
     SELECT @player_id = player_id FROM Player WHERE name = @name;
 
@@ -181,7 +187,8 @@ Como podemos ver, esta Stored Procedure utiliza nela outras Stored Procedures e 
 
 #### addOutfieldAttributeRating
 
-Esta é similar à Stored Procedure 'addGoalkeeperAttributeRating' e é outra das mais complexas. Ela é outra que é utilizada na Stored Procedure 'addPlayer' e é responsável por adicionar os atributos de um Outfield Player à base de dados. 
+Esta é similar à Stored Procedure 'addGoalkeeperAttributeRating' e é outra das mais complexas. Ela é outra que é utilizada na Stored Procedure 'addPlayer' e é responsável por adicionar os atributos de um Outfield Player à base de dados.
+
 ```sql
 CREATE PROCEDURE dbo.AddOutfieldAttributeRating
 (
@@ -286,8 +293,11 @@ GO
 Todas as restantes Stored Procedures presentes na ST 'addPlayer' e outras utilizadas para a tabela de StaredPlayers estão no ficheiro: [Stored Procedures](sql/Stored_Procedures.sql "SQLFileQuestion").
 
 ### User Defined Functions
+
 #### getPlayersWithPagination
+
 Este é um exemplo de uma User Defined Function utilizada para fazer uma pesquisa com paginação. Existem outras UDFs que fazem o mesmo para outras tabelas.
+
 ```sql
 CREATE FUNCTION dbo.GetPlayersWithPagination
 (
@@ -313,7 +323,7 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT 
+    SELECT
         PlayerID,
         PlayerName,
         Position,
@@ -395,7 +405,9 @@ GO
 ```
 
 #### getPlayerAttributes
-Esta UDF é utilizada para obter os atributos de um jogador. 
+
+Esta UDF é utilizada para obter os atributos de um jogador.
+
 ```sql
 CREATE FUNCTION dbo.GetPlayerAttributes(
     @player_id INT
@@ -435,7 +447,9 @@ GO
 ```
 
 #### getLeagueByID
+
 Esta UDF é utilizada para obter informação sobre uma liga através do seu ID.
+
 ```sql
 CREATE FUNCTION dbo.getLeagueById
 (
@@ -472,8 +486,11 @@ GO
 Todas as restantes User Defined Functions presentes no ficheiro: [User Defined Functions](sql/User_Defined_Functions.sql "SQLFileQuestion").
 
 ### Triggers
+
 #### trg_after_insert_player
+
 Este é o Trigger que é executado após a inserção de um jogador na base de dados. Ele é responsável por calcular a média de salário e valor de mercado dos jogadores de um clube e atualizar esses valores na tabela Club.
+
 ```sql
 CREATE TRIGGER trg_after_insert_players
 ON Player
@@ -491,17 +508,17 @@ BEGIN
     FROM INSERTED;
 
     -- Calculate the new totals
-    SELECT @total_players = COUNT(*), 
-           @total_wage = SUM(PC.wage), 
+    SELECT @total_players = COUNT(*),
+           @total_wage = SUM(PC.wage),
            @total_value = SUM(P.value)
     FROM Player P
     JOIN PlayerContract PC ON P.player_id = PC.player_id
     WHERE P.club_id = @club_id;
 
     -- Calculate the average attribute rating combining outfield and goalkeeper ratings
-    SELECT @avg_att = AVG(CASE 
-                            WHEN oa.rating IS NOT NULL THEN oa.rating 
-                            ELSE ga.rating 
+    SELECT @avg_att = AVG(CASE
+                            WHEN oa.rating IS NOT NULL THEN oa.rating
+                            ELSE ga.rating
                           END)
     FROM Player P
     LEFT JOIN OutfieldAttributeRating oa ON P.player_id = oa.player_id
@@ -509,7 +526,7 @@ BEGIN
     WHERE P.club_id = @club_id;
 
     -- Handle case where there are no players
-    IF @total_players = 0 
+    IF @total_players = 0
     BEGIN
         SET @total_wage = 0;
         SET @total_value = 0;
@@ -530,7 +547,9 @@ GO
 ```
 
 #### trg_after_delete_nation
+
 Os nossos Triggers de delete foram implementados para funcionar de forma 'cascade'. Este Trigger é executado em vez da eliminação de uma nação e é responsável por eliminar todos os jogadores dessa nacionalidade, depois os clubes, que por sua vez eleminam os seus jogadores, após isso as ligas e por fim o país.
+
 ```sql
 CREATE TRIGGER trg_after_delete_nation
 ON Nation
@@ -569,39 +588,43 @@ BEGIN
     DEALLOCATE deleted_nation_cursor;
 END;
 GO
-``` 
+```
 
 Os outros Triggers de delete são semelhantes a este, mas para as outras tabelas.
 
 Todas as restantes Triggers presentes no ficheiro: [Triggers](sql/Triggers.sql "SQLFileQuestion").
 
-
 ### Views
+
 #### randomPlayer
+
 Esta View é utilizada para obter um jogador aleatório da base de dados.
+
 ```sql
 CREATE VIEW RandomPlayer AS
-SELECT TOP 1 
-    p.player_id, 
-    p.name AS player_name, 
-    p.nation_id, 
-    n.name AS nation_name, 
-    p.club_id, 
+SELECT TOP 1
+    p.player_id,
+    p.name AS player_name,
+    p.nation_id,
+    n.name AS nation_name,
+    p.club_id,
     c.name AS club_name,
     p.url AS player_url
-FROM 
+FROM
     Player p
-JOIN 
+JOIN
     Nation n ON p.nation_id = n.nation_id
-JOIN 
+JOIN
     Club c ON p.club_id = c.club_id
-ORDER BY 
+ORDER BY
     NEWID();
 GO
 ```
 
 #### getPhysicalAttributes
+
 Esta View é utilizada para obter os atributos físicos, há outras views para os outros tipos de atributos.
+
 ```sql
 CREATE VIEW [dbo].[GetPhysicalAtt]
 AS
@@ -616,7 +639,7 @@ Todas as restantes Views presentes no ficheiro: [Views](sql/Views.sql "SQLFileQu
 
 ## Normalização/Normalization
 
-Para a normalização da base de dados, seguimos as regras de normalização até à 3ª forma normal. 
+Para a normalização da base de dados, seguimos as regras de normalização até à 3ª forma normal.
 A nossa entrega inicial já estava normalizada até à 3ª forma normal, e não houve necessidade de fazer alterações na base de dados que alterassem a normalização da mesma.
 
 Apesar de haver relações N para N na nossa base de dados, estas foram resolvidas com a criação de tabelas intermédias, como por exemplo a tabela PlayerPosition, PlayerRole, RolePosition, KeyAttributeRole, entre outras. A normalização destas tabelas foi feita de forma a que não houvesse redundância de dados e que a informação estivesse organizada de forma a que fosse fácil de aceder e de manipular.
@@ -635,8 +658,8 @@ Apesar de haver relações N para N na nossa base de dados, estas foram resolvid
 
 ### Dados iniciais da dabase de dados/Database init data
 
-# O GUI FAZ
-# FALA DA UDF QUE FAZ A VERIFICAÇÃO DOS ATRIBUTOS E SPLIT DOS MESMOS
+Como o projeto foi baseado no jogo FootballManager decidimos utilizar os dados reais presentes no jogo.
+Para conseguir isto desenvolvemos um [script]() em python para extrair estes dados do website [fmsinde](https://fminside.net/players/) e inserir diretamente na base de dados.
 
 ### Apresentação
 
