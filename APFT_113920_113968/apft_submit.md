@@ -20,7 +20,7 @@ Como trabalho futuro gostaríamos de adicionar mais funcionalidades à base de d
 ### Requisitos Funcionais:
 
 - Cadastro de Jogadores:
-  - Inserir novos jogadores na base de dados.
+  - Inserir e remover novos jogadores na base de dados.
   - Associar jogadores a clubes, ligas, países e contratos.
 - Consulta de Jogadores:
   - Pesquisar jogadores por diferentes atributos (nome, nacionalidade, idade, clube, posição, etc.).
@@ -655,6 +655,12 @@ Apesar de haver relações N para N na nossa base de dados, estas foram resolvid
 [SQL Views](sql/Views.sql "SQLFileQuestion")
 
 ## Outras notas/Other notes
+
+### Alteração desde a apresentação/Changes since presentation
+Desde a apresentação realizada no dia 30 de junho fizemos algumas alterações e mais implementações no nosso projeto.
+Adicionamos a funcionalidade de Stared Players e a possibilidade de remover jogadores na interface, mantendo a consistência da nossa base de dados.
+
+Aqui está o segundo video que inclui estas novas funcionalidades. [Video_Final](ScoreSavant_Demo_Version2.mp4)
 
 ### Dados iniciais da dabase de dados/Database init data
 
