@@ -36,7 +36,10 @@ dinâmica como python poderia tornar o desenvolvimento mais difícil.
 
 ### 3.2 Correr o projeto
 
+**WARNING**: O docker tem de estar a correr para que o projeto inicie.
+
 Para correr o projeto basta correr os seguintes comandos:
+
 
 ```bash
 make build
