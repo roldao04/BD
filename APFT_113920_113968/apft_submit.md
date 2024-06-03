@@ -659,7 +659,7 @@ Apesar de haver relações N para N na nossa base de dados, estas foram resolvid
 ### Dados iniciais da dabase de dados/Database init data
 
 Como o projeto foi baseado no jogo FootballManager decidimos utilizar os dados reais presentes no jogo.
-Para conseguir isto desenvolvemos um [script]() em python para extrair estes dados do website [fmsinde](https://fminside.net/players/) e inserir diretamente na base de dados.
+Para conseguir isto desenvolvemos um script em python para extrair estes dados do website [fmsinde](https://fminside.net/players/) e inserir diretamente na base de dados.
 
 ### Apresentação
 
